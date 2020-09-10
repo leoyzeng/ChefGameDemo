@@ -1,0 +1,27 @@
+Build Paramedic Station 32 (100000)
+
+Paramedic Station 32 -> ALS Ambulance (10000 + 12180 = 22180)
+
+Station 32 Total: 122180-------------------------------------------
+
+Fire 4-4 -> Pumper Tanker (10000 + 19000 = 29000) (Callsign: Tanker)
+Fire 4-4 -> Platform Truck (50000 + 10000 = 60000) (Callsign: Truck)
+
+Station 44 Total: 89000-------------------------------------------
+
+Fire 4-2 -> HazMat (50000 + 19200 = 69200) (Callsign: Haz-Mat)
+
+Station 42 Total: 69200-------------------------------------------
+
+Expand Police and Paramedic Stations
+
+Build new Police and Paramedic Stations
+
+All calls available:
+30 Fire Stations (1,500,000)
+10 Police Stations (500,000)
+40 Ambulance Stations (4,000,000)
+1 Police Helicopter Stations (1,000,000)
+2 Rescue Boat Docks (1,000,000)
+2 Fire boat Docks (1,000,000)
+1 Firefighting Plane Stations (1,500,000)
