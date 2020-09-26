@@ -4,7 +4,8 @@ using System.Threading;
 using UnityEngine;
 
 public class MoveCharacter : MonoBehaviour{
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
+    public bool isGrounded = false;
     // Start is called before the first frame update
     void Start(){
         
@@ -22,7 +23,7 @@ public class MoveCharacter : MonoBehaviour{
     }
 
     void jump(){
-        if (Input.GetButtonDown("Jump")){
+        if (Input.GetButtonDown("Jump") && isGrounded == true){
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
         }   
     }
