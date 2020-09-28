@@ -4,20 +4,20 @@ using UnityEngine;
 using System;
 using System.Drawing;
 
+// check whether a rock jump should happen 
 public class RocketJumpCollisionCheck : MonoBehaviour
 {
 
-    public bool collision;
-    public static float slope;
-    public static PointF intersection1;
+    public bool collision;    // whether the intersection point is inside a collider 
+    public static float slope;    // slope of the line from center of character to mouse 
+    public static PointF intersection1;    // point of intersection of radius circle and line 
     public static PointF intersection2;
-    private float b;
-    private float radius; 
-    private float intersectionX, intersectionY;
-    private Vector2 mousePos;
-    private Vector2 startPos;
-    public static float rise;
-    public static float run;
+    private float b;    // b value of y = m * x + b of line
+    private float radius;    // rocket jump dection radius 
+    private Vector2 mousePos;    // current mouse position 
+    private Vector2 startPos;    // current character position 
+    public static float rise;    // y difference of 2 points 
+    public static float run;    // x difference of 2 points 
 
     
     
@@ -30,22 +30,21 @@ public class RocketJumpCollisionCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        rise = mousePos.y - startPos.y;
-        run = mousePos.x - startPos.x;
-        slope = (mousePos.y - startPos.y) / (mousePos.x - startPos.x);
-        
-        b = (mousePos.y) / (slope * mousePos.x);
-        PointF point1 = new PointF(startPos.x, startPos.y);
-        PointF point2 = new PointF(mousePos.x, mousePos.y);
+        startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;    // update character position
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse position 
+        rise = mousePos.y - startPos.y;    // calculate rise 
+        run = mousePos.x - startPos.x;    // calculate run 
+        slope = (mousePos.y - startPos.y) / (mousePos.x - startPos.x);    // calculate slope 
+        b = (mousePos.y) / (slope * mousePos.x);    // calculate b
+        PointF point1 = new PointF(startPos.x, startPos.y);    // convert character's position to point
+        PointF point2 = new PointF(mousePos.x, mousePos.y);    // convert mouse's position to point
 
         FindLineCircleIntersections(startPos.x, startPos.y, 1.0f, point1, point2, out intersection1, out intersection2);
-
-
-
+        // only intersection1 is needed for program (actual intersection between circle and line, not opposite side)
     }
 
+    // method that takes circle center x, y, radius, point1 of line, point2 of line
+    // returns 2 intections of the line and circle 
     private int FindLineCircleIntersections(
     float cx, float cy, float radius,
     PointF point1, PointF point2,
