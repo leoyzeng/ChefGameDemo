@@ -30,8 +30,10 @@ public class RocketJumpCollisionCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        mousePos = GetWorldPositionOnPlane(screenPosition, 20);
         startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;    // update character position
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse position 
+        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse position 
         rise = mousePos.y - startPos.y;    // calculate rise 
         run = mousePos.x - startPos.x;    // calculate run 
         slope = (mousePos.y - startPos.y) / (mousePos.x - startPos.x);    // calculate slope 
@@ -41,6 +43,15 @@ public class RocketJumpCollisionCheck : MonoBehaviour
 
         FindLineCircleIntersections(startPos.x, startPos.y, 1.0f, point1, point2, out intersection1, out intersection2);
         // only intersection1 is needed for program (actual intersection between circle and line, not opposite side)
+    }
+
+    public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) 
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        return ray.GetPoint(distance);
     }
 
     // method that takes circle center x, y, radius, point1 of line, point2 of line
