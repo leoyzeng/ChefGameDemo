@@ -8,7 +8,7 @@ using System.Drawing;
 public class RocketJumpCollisionCheck : MonoBehaviour
 {
 
-    public bool collision;    // whether the intersection point is inside a collider 
+    // public static bool collision;    // whether the intersection point is inside a collider 
     public static float slope;    // slope of the line from center of character to mouse 
     public static PointF intersection1;    // point of intersection of radius circle and line 
     public static PointF intersection2;
@@ -30,10 +30,10 @@ public class RocketJumpCollisionCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        mousePos = GetWorldPositionOnPlane(screenPosition, 20);
+        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);    // find mouse position 
+        mousePos = GetWorldPositionOnPlane(screenPosition, 20);    // update mouse position 
         startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;    // update character position
-        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse position 
+        // mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse position 
         rise = mousePos.y - startPos.y;    // calculate rise 
         run = mousePos.x - startPos.x;    // calculate run 
         slope = (mousePos.y - startPos.y) / (mousePos.x - startPos.x);    // calculate slope 
@@ -45,6 +45,7 @@ public class RocketJumpCollisionCheck : MonoBehaviour
         // only intersection1 is needed for program (actual intersection between circle and line, not opposite side)
     }
 
+    // convert perspective camera mouse position to orthrographic, calculate for mouse.z = plane of characters 
     public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) 
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);
@@ -60,45 +61,45 @@ public class RocketJumpCollisionCheck : MonoBehaviour
     float cx, float cy, float radius,
     PointF point1, PointF point2,
     out PointF intersection1, out PointF intersection2)
-{
-    float dx, dy, A, B, C, det, t;
-
-    dx = point2.X - point1.X;
-    dy = point2.Y - point1.Y;
-
-    A = dx * dx + dy * dy;
-    B = 2 * (dx * (point1.X - cx) + dy * (point1.Y - cy));
-    C = (point1.X - cx) * (point1.X - cx) +
-        (point1.Y - cy) * (point1.Y - cy) -
-        radius * radius;
-
-    det = B * B - 4 * A * C;
-    if ((A <= 0.0000001) || (det < 0))
     {
-        // No real solutions.
-        intersection1 = new PointF(float.NaN, float.NaN);
-        intersection2 = new PointF(float.NaN, float.NaN);
-        return 0;
+        float dx, dy, A, B, C, det, t;
+
+        dx = point2.X - point1.X;
+        dy = point2.Y - point1.Y;
+
+        A = dx * dx + dy * dy;
+        B = 2 * (dx * (point1.X - cx) + dy * (point1.Y - cy));
+        C = (point1.X - cx) * (point1.X - cx) +
+            (point1.Y - cy) * (point1.Y - cy) -
+            radius * radius;
+
+        det = B * B - 4 * A * C;
+        if ((A <= 0.0000001) || (det < 0))
+        {
+            // No real solutions.
+            intersection1 = new PointF(float.NaN, float.NaN);
+            intersection2 = new PointF(float.NaN, float.NaN);
+            return 0;
+        }
+        else if (det == 0)
+        {
+            // One solution.
+            t = -B / (2 * A);
+            intersection1 =
+                new PointF(point1.X + t * dx, point1.Y + t * dy);
+            intersection2 = new PointF(float.NaN, float.NaN);
+            return 1;
+        }
+        else
+        {
+            // Two solutions.
+            t = (float)((-B + Math.Sqrt(det)) / (2 * A));
+            intersection1 =
+                new PointF(point1.X + t * dx, point1.Y + t * dy);
+            t = (float)((-B - Math.Sqrt(det)) / (2 * A));
+            intersection2 =
+                new PointF(point1.X + t * dx, point1.Y + t * dy);
+            return 2;
+        }
     }
-    else if (det == 0)
-    {
-        // One solution.
-        t = -B / (2 * A);
-        intersection1 =
-            new PointF(point1.X + t * dx, point1.Y + t * dy);
-        intersection2 = new PointF(float.NaN, float.NaN);
-        return 1;
-    }
-    else
-    {
-        // Two solutions.
-        t = (float)((-B + Math.Sqrt(det)) / (2 * A));
-        intersection1 =
-            new PointF(point1.X + t * dx, point1.Y + t * dy);
-        t = (float)((-B - Math.Sqrt(det)) / (2 * A));
-        intersection2 =
-            new PointF(point1.X + t * dx, point1.Y + t * dy);
-        return 2;
-    }
-}
 }
