@@ -13,8 +13,8 @@ public class BreadBoy1 : BasicPathing
         moveSpeed = 5;
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called once per physics frame
+    void FixedUpdate()
     {
         moveSideToSide();
     }

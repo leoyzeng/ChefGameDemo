@@ -19,8 +19,6 @@ public class RocketJumpCollisionCheck : MonoBehaviour
     public static float rise;    // y difference of 2 points 
     public static float run;    // x difference of 2 points 
 
-    
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +41,7 @@ public class RocketJumpCollisionCheck : MonoBehaviour
 
         FindLineCircleIntersections(startPos.x, startPos.y, 1.0f, point1, point2, out intersection1, out intersection2);
         // only intersection1 is needed for program (actual intersection between circle and line, not opposite side)
+        
     }
 
     // convert perspective camera mouse position to orthrographic, calculate for mouse.z = plane of characters 

@@ -5,6 +5,8 @@ using UnityEngine;
 // checks if character is standing on a platform 
 public class BottomPlatform : MonoBehaviour{
 
+
+
     GameObject Player;    // character 
     // Start is called before the first frame update
     void Start()
