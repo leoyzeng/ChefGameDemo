@@ -9,7 +9,7 @@ public class DrawLine : MonoBehaviour
     private LineRenderer lineRend;    // line renderer to draw line 
     public static Vector2 mousePos;    // current mouse position
     public static Vector2 startPos;    // current character position 
-    float characterPlane = -0.00001f;    // z position of the character (line should be on same plane)
+    float characterPlane = 0f;    // z position of the character (line should be on same plane)
     
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,9 @@ public class DrawLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         mousePos = GetWorldPositionOnPlane(screenPosition, characterPlane);
-
         startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;    // pudate character's current position 
         //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse's current position 
         lineRend.SetPosition(0, new Vector3(startPos.x, startPos.y, characterPlane));    // draw line 
