@@ -21,15 +21,17 @@ public class DrawLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         mousePos = GetWorldPositionOnPlane(screenPosition, characterPlane);
         startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;    // pudate character's current position 
         //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);    // update mouse's current position 
         lineRend.SetPosition(0, new Vector3(startPos.x, startPos.y, characterPlane));    // draw line 
         lineRend.SetPosition(1, new Vector3(mousePos.x, mousePos.y, characterPlane));
+        // Debug.DrawLine(startPos, mousePos, Color.blue);    // draw the line from center of character to mouse 
+
     }
 
+    // convert mouse position to game position at z = 0
     public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z) 
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPosition);

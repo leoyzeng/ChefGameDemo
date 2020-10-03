@@ -10,7 +10,7 @@ public class Collision : MonoBehaviour
     [SerializeField] private LayerMask platformLayerMask;    // layer mask so the detection only happens with platforms 
     private Vector2 intersection;    // end of line, intersection between mouse and radius 
     private Vector2 startPos;    // start of line, center of player 
-    RaycastHit2D raycastHit2D;    // ray cast 
+    private RaycastHit2D raycastHit2D;    // ray cast 
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +45,15 @@ public class Collision : MonoBehaviour
     }
 
     // draw the line 
-    private void drawLine(){   
-        Debug.DrawLine(startPos, intersection, Color.red);    // draw the line from center of character to mouse/radius intersection point 
+    private void drawLine(){  
+        Color rayColor;    // color 
+        if(raycastHit2D.collider != null){    // change the color based on whether it hits a collider or not 
+            rayColor = Color.green;    // green = touching ground 
+        }
+        else{
+            rayColor = Color.red;    // red = not touching ground 
+        } 
+        Debug.DrawLine(startPos, intersection, rayColor);    // draw the line from center of character to mouse/radius intersection point 
     }
 
 }
