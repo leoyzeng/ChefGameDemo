@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 21992246}
   - component: {fileID: 21992248}
   - component: {fileID: 21992247}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize (6)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -242,14 +242,13 @@ GameObject:
   m_Component:
   - component: {fileID: 45878105}
   - component: {fileID: 45878106}
-  - component: {fileID: 45878107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TouchingBottomPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &45878105
 Transform:
   m_ObjectHideFlags: 0
@@ -277,7 +276,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1648902, y: -0.50234675}
+  m_Offset: {x: -0.16182195, y: -0.50234675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -288,20 +287,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6765134, y: 0.0791831}
+  m_Size: {x: 0.46270022, y: 0.0791831}
   m_EdgeRadius: 0
---- !u!114 &45878107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45878104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c8a1ce2b5f8286468c450769095f0ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &121631103
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +300,7 @@ GameObject:
   - component: {fileID: 121631106}
   - component: {fileID: 121631105}
   - component: {fileID: 121631104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -422,7 +409,7 @@ GameObject:
   - component: {fileID: 190086379}
   - component: {fileID: 190086378}
   - component: {fileID: 190086377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -531,7 +518,7 @@ GameObject:
   - component: {fileID: 250900739}
   - component: {fileID: 250900738}
   - component: {fileID: 250900737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GrassThinSprite
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -643,7 +630,7 @@ GameObject:
   - component: {fileID: 263479663}
   - component: {fileID: 263479664}
   - component: {fileID: 263479665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Character ChefBoy Default GameSize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +740,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16420329, y: 0.05989456}
+  m_Offset: {x: -0.16420329, y: -0.0160985}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -764,7 +751,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6803943, y: 1.0438099}
+  m_Size: {x: 0.6803943, y: 1.195796}
   m_EdgeRadius: 0
 --- !u!114 &263479664
 MonoBehaviour:
@@ -778,8 +765,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffabbbb7b012e5448b1c271d3bbade3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
   moveSpeed: 5
-  isGrounded: 0
 --- !u!114 &263479665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,7 +790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 310360409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430795768}
   - component: {fileID: 430795769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DrawCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1057,7 +1046,7 @@ GameObject:
   - component: {fileID: 451467252}
   - component: {fileID: 451467254}
   - component: {fileID: 451467253}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1167,7 +1156,7 @@ GameObject:
   - component: {fileID: 556143709}
   - component: {fileID: 556143710}
   - component: {fileID: 556143711}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: RocketJumpPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1279,7 @@ GameObject:
   - component: {fileID: 761884687}
   - component: {fileID: 761884686}
   - component: {fileID: 761884685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: StartHoverSprite
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1466,7 +1455,7 @@ GameObject:
   - component: {fileID: 921156297}
   - component: {fileID: 921156296}
   - component: {fileID: 921156295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1575,7 +1564,7 @@ GameObject:
   - component: {fileID: 1007020392}
   - component: {fileID: 1007020391}
   - component: {fileID: 1007020390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1684,7 +1673,7 @@ GameObject:
   - component: {fileID: 1073972138}
   - component: {fileID: 1073972137}
   - component: {fileID: 1073972136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ColumnSprite (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2196,7 +2185,7 @@ GameObject:
   - component: {fileID: 1609423053}
   - component: {fileID: 1609423054}
   - component: {fileID: 1609423052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RocketJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2349,7 +2338,7 @@ GameObject:
   - component: {fileID: 1749845971}
   - component: {fileID: 1749845973}
   - component: {fileID: 1749845972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Character JellyMan Default Gamesize (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2456,7 +2445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860133143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2585,7 +2574,7 @@ GameObject:
   - component: {fileID: 1938053275}
   - component: {fileID: 1938053274}
   - component: {fileID: 1938053273}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ColumnSprite
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2832,7 +2821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2047559271}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,8 +5,7 @@ using UnityEngine;
 // checks if character is standing on a platform 
 public class BottomPlatform : MonoBehaviour{
 
-
-
+/*
     GameObject Player;    // character 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,7 @@ public class BottomPlatform : MonoBehaviour{
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.collider.tag == "Ground"){    // check if this collider touches a ground / platform 
+        if(collision.collider.tag == "Ground" && GetComponent<Collider>()){    // check if this collider touches a ground / platform 
             Player.GetComponent<MoveCharacter>().isGrounded = true;    // isGrounded turns true
         }
     }
@@ -30,4 +29,5 @@ public class BottomPlatform : MonoBehaviour{
             Player.GetComponent<MoveCharacter>().isGrounded = false;
         } 
     }
+    */
 }
