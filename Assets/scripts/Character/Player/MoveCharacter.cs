@@ -6,13 +6,15 @@ using UnityEngine;
 // move the character left/right/jump
 public class MoveCharacter : MonoBehaviour{
 
+    
+
     [SerializeField] private LayerMask platformLayerMask;
     //private Player_Base playerBase;
     private Rigidbody2D rigidbody2d;
     private BoxCollider2D boxCollider2d;
     private RaycastHit2D raycastHit;
     private float extraHeight = 0.2f;    // small extra value so that the boxcast extends farther than the player's collider 
-
+    public static bool grounded; 
     void Awake(){
         //playerBase = gameObject.GetComponent<Player_Base>();
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
@@ -47,6 +49,7 @@ public class MoveCharacter : MonoBehaviour{
     void jump(){
         if (Input.GetButtonDown("Jump") && isGrounded()){    // if player press jump and character is touching ground
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);    // jump up 
+
         }   
     }
 
@@ -58,6 +61,7 @@ public class MoveCharacter : MonoBehaviour{
         Vector3 size = boxCollider2d.bounds.size;    // size of the box cast 
         size.x -= 0.1f;    // make the x value slighty smaller than player's collider x so that the boxcast does not trigger when the player is next to a vertical wall 
         raycastHit = Physics2D.BoxCast(boxCollider2d.bounds.center, size, 0f, Vector2.down, extraHeight, platformLayerMask);    // create the boxcast pointing down 
+        grounded = raycastHit.collider != null;
         return raycastHit.collider != null;    // return whether character is touching ground/platform 
     }
 
@@ -74,6 +78,6 @@ public class MoveCharacter : MonoBehaviour{
         Debug.DrawRay(boxCollider2d.bounds.center + new Vector3(boxCollider2d.bounds.extents.x, 0), Vector2.down * (boxCollider2d.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider2d.bounds.center - new Vector3(boxCollider2d.bounds.extents.x, 0), Vector2.down * (boxCollider2d.bounds.extents.y + extraHeight), rayColor);
         Debug.DrawRay(boxCollider2d.bounds.center - new Vector3(boxCollider2d.bounds.extents.x, boxCollider2d.bounds.extents.y + extraHeight), Vector2.right * (boxCollider2d.bounds.extents) * 2, rayColor);
-        Debug.Log(raycastHit.collider);
+        // Debug.Log(raycastHit.collider);
     }
 }

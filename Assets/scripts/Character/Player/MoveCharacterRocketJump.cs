@@ -16,7 +16,9 @@ public class MoveCharacterRocketJump : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && Collision.inCollider == true){    // if player click mouse and intersection point is inside a collider
             // add a for equal to opposite direction of where the player clicked 
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-RocketJumpCollisionCheck.run, -RocketJumpCollisionCheck.rise), ForceMode2D.Impulse);
+            float run = -RocketJumpCollisionCheck.run * 1f;
+            float rise = -RocketJumpCollisionCheck.rise * 0.4f + 4.5f;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(run, rise), ForceMode2D.Impulse);
         }
     }
 }
