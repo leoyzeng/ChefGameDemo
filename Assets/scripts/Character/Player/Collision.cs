@@ -6,8 +6,12 @@ using UnityEngine;
 // draws a line from center of player to radius and see if it intersects with any colliders 
 public class Collision : MonoBehaviour
 {
-    public static bool inCollider;    // if the mouse and rocket jump radius is inside a collider 
-    [SerializeField] private LayerMask platformLayerMask;    // layer mask so the detection only happens with platforms 
+    GameObject rocketJump;
+    RocketJumpCollisionCheck rocketJumpCollisionCheck;
+
+
+    public bool inCollider;    // if the mouse and rocket jump radius is inside a collider 
+    [SerializeField] public LayerMask platformLayerMask;    // layer mask so the detection only happens with platforms 
     private Vector2 intersection;    // end of line, intersection between mouse and radius 
     private Vector2 startPos;    // start of line, center of player 
     private RaycastHit2D raycastHit2D;    // ray cast 
@@ -15,7 +19,8 @@ public class Collision : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rocketJump = GameObject.Find("RocketJump");
+        rocketJumpCollisionCheck = rocketJump.GetComponent<RocketJumpCollisionCheck>();
     }
 
     // Update is called once per frame
@@ -31,8 +36,8 @@ public class Collision : MonoBehaviour
     private void updateIntersection(){
 
         startPos = GameObject.Find("Character ChefBoy Default GameSize").transform.position;    // update startPos (same as character position)
-        intersection.x = RocketJumpCollisionCheck.intersection1.X;    // update x and y of the point of intersection 
-        intersection.y = RocketJumpCollisionCheck.intersection1.Y;
+        intersection.x = rocketJumpCollisionCheck.intersection1.X;    // update x and y of the point of intersection 
+        intersection.y = rocketJumpCollisionCheck.intersection1.Y;
     }
 
     // check if the line touches any colliders 

@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class JumpSound : MonoBehaviour
 {
+    GameObject chefBoy;
+    MoveCharacter moveCharacter;
+    Collision collision;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        chefBoy = GameObject.Find("Character ChefBoy Default GameSize");
+        moveCharacter = chefBoy.GetComponent<MoveCharacter>();
+        collision = chefBoy.GetComponent<Collision>();
+
     }
 
     // Update is called once per frame
@@ -19,16 +26,17 @@ public class JumpSound : MonoBehaviour
     }
     void jumpSound()
     {
-        if (Input.GetButtonDown("Jump") && MoveCharacter.grounded)
+        if (Input.GetButtonDown("Jump") && moveCharacter.grounded)
         {
             randomPitch();
             gameObject.GetComponent<AudioSource>().Play();
         }
     }
 
+
     void rocketJumpSound()
     {
-        if (Input.GetMouseButtonDown(0) && Collision.inCollider == true)
+        if (Input.GetMouseButtonDown(0) && collision.inCollider == true)
         {
             randomPitch();
             gameObject.GetComponent<AudioSource>().Play();

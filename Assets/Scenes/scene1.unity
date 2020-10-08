@@ -711,6 +711,7 @@ MonoBehaviour:
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  grounded: 0
   moveSpeed: 5
 --- !u!114 &263479665
 MonoBehaviour:
@@ -736,6 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2ea342ad792414b978ad829ae60e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inCollider: 0
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -2219,6 +2221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c39fee387a7f64eba1cdf337cbf0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slope: 0
+  rise: 0
+  run: 0
 --- !u!120 &1609423053
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2328,6 +2333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a0df6dccb110ec47999ccedbe505e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousePos: {x: 0, y: 0}
+  startPos: {x: 0, y: 0}
 --- !u!1 &1749845970
 GameObject:
   m_ObjectHideFlags: 0

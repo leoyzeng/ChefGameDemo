@@ -8,13 +8,14 @@ public class MoveCharacter : MonoBehaviour{
 
     
 
-    [SerializeField] private LayerMask platformLayerMask;
+    [SerializeField] public LayerMask platformLayerMask;
     //private Player_Base playerBase;
     private Rigidbody2D rigidbody2d;
     private BoxCollider2D boxCollider2d;
     private RaycastHit2D raycastHit;
     private float extraHeight = 0.2f;    // small extra value so that the boxcast extends farther than the player's collider 
-    public static bool grounded; 
+    public bool grounded; 
+
     void Awake(){
         //playerBase = gameObject.GetComponent<Player_Base>();
         rigidbody2d = transform.GetComponent<Rigidbody2D>();

@@ -9,15 +9,15 @@ public class RocketJumpCollisionCheck : MonoBehaviour
 {
 
     // public static bool collision;    // whether the intersection point is inside a collider 
-    public static float slope;    // slope of the line from center of character to mouse 
-    public static PointF intersection1;    // point of intersection of radius circle and line 
-    public static PointF intersection2;
+    public float slope;    // slope of the line from center of character to mouse 
+    public PointF intersection1;    // point of intersection of radius circle and line 
+    public PointF intersection2;
     private float b;    // b value of y = m * x + b of line
     private float radius;    // rocket jump dection radius 
     private Vector2 mousePos;    // current mouse position 
     private Vector2 startPos;    // current character position 
-    public static float rise;    // y difference of 2 points 
-    public static float run;    // x difference of 2 points 
+    public float rise;    // y difference of 2 points 
+    public float run;    // x difference of 2 points 
 
     // Start is called before the first frame update
     void Start()

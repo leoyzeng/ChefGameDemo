@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class DrawLine : MonoBehaviour
 {
     private LineRenderer lineRend;    // line renderer to draw line 
-    public static Vector2 mousePos;    // current mouse position
-    public static Vector2 startPos;    // current character position 
+    public Vector2 mousePos;    // current mouse position
+    public Vector2 startPos;    // current character position 
     float characterPlane = 0f;    // z position of the character (line should be on same plane)
     
     // Start is called before the first frame update
     void Start()
     {
+        
         lineRend = GetComponent<LineRenderer>();
         lineRend.positionCount = 2;    // 2 points to create the line 
     }
